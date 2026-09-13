@@ -53,10 +53,19 @@ function timeElapse(date){
 	if (seconds < 10) {
 		seconds = "0" + seconds;
 	}
-	var result = "Days <span class=\"digit\">" + days + "</span> Hours <span class=\"digit\">" + hours + "</span> Minutes <span class=\"digit\">" + minutes; 
+	var result = "Days <span class=\"digit\">" + days + "</span> Hours <span class=\"digit\">" + hours + "</span> Minutes <span class=\"digit\">" + minutes + "</span> Seconds <span class=\"digit\">" + seconds + "</span>";
 	$("#clock").html(result);
 
 	var text = "THE WORLD JUST GOT LUCKIER SINCE ";
 	$("#message-box").html(text);
 
 }
+
+$(function () {
+	var startDate = "2004-01-01";
+	var timer = setInterval(function () {
+		timeElapse(startDate);
+	}, 1000);
+	// show immediately and keep it refreshing
+	timeElapse(startDate);
+});
